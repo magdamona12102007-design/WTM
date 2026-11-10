@@ -1,0 +1,737 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Welcome to My Country</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,600&family=Figtree:wght@400;600&display=swap">
+<style>
+/* Layout: a night-bazaar page. Adras cloth in four colourways hangs behind and above
+   portal-arch (peshtoq) panels; gold rules and eight-point stars carry the structure. */
+:root {
+  color-scheme: dark;
+  --night: #120E27;
+  --raise: #1C1638;
+  --edge: #3A3160;
+  --cream: #F7F0DF;
+  --soft: #C9C0DD;
+  --gold: #E7B84B;
+  --paper: #FBF5E6;
+  --paper-ink: #1A1433;
+  --paper-soft: #5A5170;
+  --paper-line: #E0D5BA;
+  --crimson: #B3122D;
+  --display: "Fraunces", Georgia, "Times New Roman", "Songti SC", "Noto Serif CJK SC", serif;
+  --body: "Figtree", "Segoe UI", Arial, "Noto Sans", "PingFang SC", "Hiragino Sans", "Malgun Gothic", Tahoma, sans-serif;
+  --cloth-1: repeating-linear-gradient(90deg, #B3122D 0 40px, #FBF5E6 40px 48px, #20266F 48px 88px, #F4C21E 88px 104px, #0E7A4E 104px 142px, #FBF5E6 142px 150px);
+  --cloth-2: repeating-linear-gradient(90deg, #1C2470 0 40px, #FBF5E6 40px 48px, #B3122D 48px 88px, #F4C21E 88px 104px, #1596A6 104px 142px, #FBF5E6 142px 150px);
+  --cloth-3: repeating-linear-gradient(90deg, #F0B81A 0 40px, #FBF5E6 40px 48px, #0E7A4E 48px 88px, #B3122D 88px 104px, #8A1F7C 104px 142px, #FBF5E6 142px 150px);
+  --cloth-4: repeating-linear-gradient(90deg, #0C6B45 0 40px, #FBF5E6 40px 48px, #8A1F7C 48px 88px, #F4C21E 88px 104px, #B3122D 104px 142px, #FBF5E6 142px 150px);
+}
+* { box-sizing: border-box; }
+body { background: var(--night); color: var(--cream); font-family: var(--body); font-size: 1.0625rem; line-height: 1.6; }
+h1, h2, h3, p, ul, ol { margin: 0; padding: 0; }
+ul, ol { list-style: none; }
+h1, h2, h3 { font-family: var(--display); font-weight: 600; text-wrap: balance; line-height: 1.12; }
+:root:is([lang="zh"], [lang="ja"], [lang="ko"], [lang="fa"]) * { font-style: normal !important; letter-spacing: 0 !important; }
+
+.c1 { background-image: var(--cloth-1); } .c2 { background-image: var(--cloth-2); }
+.c3 { background-image: var(--cloth-3); } .c4 { background-image: var(--cloth-4); }
+.cloth { background-size: 300px 520px; background-position: center top; background-color: #20266F; }
+.cloth.small { background-size: 190px 329px; }
+.wrap { max-width: 72rem; margin-inline: auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.eyebrow { font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); }
+.star { width: 1.5rem; height: 1.5rem; color: var(--gold); flex: none; }
+.band { height: 6rem; border-block: 3px solid var(--gold); }
+
+/* Hero */
+.hero .wrap { padding-block: 1.5rem 5rem; display: flex; flex-direction: column; align-items: center; gap: 2.5rem; }
+.bar { align-self: stretch; display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; justify-content: space-between; }
+.bar .right { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
+.pill { background: var(--night); color: var(--cream); border: 1px solid var(--gold); border-radius: 999px; padding: 0.45rem 1.1rem; font-size: 0.875rem; font-weight: 600; }
+.pill.mark { font-family: var(--display); font-size: 1.0625rem; }
+.pill.status::before { content: ""; display: inline-block; width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--gold); margin-inline-end: 0.5rem; }
+.pill.lang { padding: 0; display: inline-flex; }
+.pill.lang select { appearance: none; -webkit-appearance: none; background: transparent; color: inherit; border: 0; font: inherit; padding: 0.45rem 1.1rem; border-radius: 999px; cursor: pointer; }
+.pill.lang select:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+.pill.lang option { background: var(--night); color: var(--cream); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.portal { width: min(46rem, 100%); background: var(--night); border-radius: 23rem 23rem 1.5rem 1.5rem; padding: 0.8rem; box-shadow: 0 2rem 4rem rgba(6, 3, 20, 0.6); }
+.portal .inner { border: 1px solid var(--gold); border-radius: 22.2rem 22.2rem 1rem 1rem; padding: 5.5rem 4rem 3rem; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.4rem; }
+h1 { font-size: clamp(2.25rem, 5.6vw, 4rem); letter-spacing: -0.015em; }
+h1 em { color: var(--gold); display: block; }
+.lede { font-size: 1.125rem; color: var(--soft); max-width: 33rem; }
+.facts { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; }
+.facts li { border: 1px solid var(--edge); border-radius: 999px; padding: 0.3rem 0.9rem; font-size: 0.875rem; color: var(--soft); }
+.facts b { color: var(--cream); font-weight: 600; }
+
+/* Sections */
+.section .wrap { padding-block: 5rem; display: flex; flex-direction: column; gap: 3rem; }
+.section.tight .wrap { padding-top: 0; }
+.head { display: flex; flex-direction: column; gap: 0.9rem; max-width: 44rem; }
+.head h2 { font-size: clamp(1.875rem, 4.2vw, 3rem); letter-spacing: -0.01em; }
+.head p { color: var(--soft); }
+.head.mid { align-self: center; align-items: center; text-align: center; }
+
+.xps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+.xp { background: var(--raise); border: 1px solid var(--edge); border-radius: 11rem 11rem 1.25rem 1.25rem; overflow: hidden; display: flex; flex-direction: column; min-width: 0; }
+.xp .cloth { height: 12rem; border-bottom: 3px solid var(--gold); }
+.xp .in { padding: 1.5rem 1.6rem 1.8rem; display: flex; flex-direction: column; gap: 0.5rem; }
+.xp .where { font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); }
+.xp h3 { font-size: 1.5rem; }
+.xp p { color: var(--soft); font-size: 1rem; }
+
+.paper { background: var(--paper); color: var(--paper-ink); }
+.paper .eyebrow { color: var(--crimson); }
+.paper .head p { color: var(--paper-soft); }
+.days { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 2.25rem 1.5rem; }
+.days li { border-top: 3px solid var(--paper-ink); padding-top: 0.9rem; display: flex; flex-direction: column; gap: 0.4rem; min-width: 0; }
+.days .n { font-family: var(--display); font-style: italic; font-size: 3rem; line-height: 1; color: var(--crimson); font-variant-numeric: tabular-nums; }
+.days h3 { font-size: 1.1875rem; overflow-wrap: anywhere; }
+.days p:not(.n) { color: var(--paper-soft); font-size: 0.9688rem; line-height: 1.5; }
+.note { font-size: 0.875rem; color: var(--paper-soft); }
+
+.levels { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+.level { border: 1px solid var(--gold); border-radius: 1.25rem; padding: 1.75rem; display: flex; flex-direction: column; gap: 0.6rem; min-width: 0; }
+.level .time { font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); }
+.level h3 { font-size: 2rem; font-style: italic; }
+.level p { color: var(--soft); font-size: 1rem; }
+
+.two { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 3.5rem; align-items: center; }
+.col { display: flex; flex-direction: column; gap: 2.25rem; min-width: 0; }
+.steps { display: flex; flex-direction: column; counter-reset: step; }
+.steps li { counter-increment: step; display: grid; grid-template-columns: 3.25rem minmax(0, 1fr); gap: 0.2rem 1rem; padding-block: 1.1rem; border-top: 1px solid var(--edge); }
+.steps li::before { content: counter(step); grid-row: span 2; font-family: var(--display); font-style: italic; font-size: 2.5rem; line-height: 1; color: var(--gold); }
+.steps h3 { font-family: var(--body); font-size: 1.125rem; font-weight: 600; line-height: 1.35; }
+.steps p { grid-column: 2; color: var(--soft); font-size: 1rem; }
+.frame { border-radius: 1.75rem; padding: 1.1rem; min-width: 0; }
+.price { background: var(--night); border: 1px solid var(--gold); border-radius: 1rem; padding: 2.25rem; display: flex; flex-direction: column; gap: 1rem; }
+.price .fee { font-family: var(--display); font-size: clamp(3.5rem, 9vw, 5.5rem); line-height: 1; color: var(--gold); }
+.price p { color: var(--soft); font-size: 1rem; }
+.price p b { color: var(--cream); font-weight: 600; }
+
+.wed { border-radius: 1.75rem; padding: 1.1rem; }
+.wed .inner { background: var(--night); border: 1px solid var(--gold); border-radius: 1rem; padding: 3rem 2rem; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.1rem; }
+.wed h2 { font-size: clamp(1.875rem, 4.2vw, 3rem); }
+.wed h2 em { color: var(--gold); }
+.wed p { color: var(--soft); max-width: 38rem; }
+.soon { border: 1px solid var(--gold); color: var(--gold); border-radius: 999px; padding: 0.35rem 1rem; font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
+
+.foot .wrap { padding-block: 3rem; display: flex; justify-content: center; }
+.foot .card { background: var(--night); border: 1px solid var(--gold); border-radius: 1.25rem; padding: 1.5rem 2rem; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.35rem; font-size: 0.9375rem; color: var(--soft); }
+.foot .card b { font-family: var(--display); font-size: 1.375rem; font-weight: 600; color: var(--cream); }
+
+@media (max-width: 56rem) {
+  .xps, .levels { grid-template-columns: minmax(0, 1fr); }
+  .xp { max-width: 24rem; width: 100%; justify-self: center; }
+  .two { grid-template-columns: minmax(0, 1fr); gap: 2.5rem; }
+  .days { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.75rem 1rem; }
+  .section .wrap { padding-block: 3.5rem; gap: 2.25rem; }
+  .section.tight .wrap { padding-top: 0; }
+  .portal .inner { padding: 4.75rem 1.4rem 2.25rem; }
+  .hero .wrap { padding-block: 1.25rem 3.5rem; }
+  .band { height: 4.5rem; }
+}
+</style>
+
+<div class="hero cloth c1">
+  <div class="wrap">
+    <div class="bar">
+      <span class="pill mark">Welcome to My Country</span>
+      <div class="right">
+        <span class="pill status" data-t>Pilot programmes in preparation</span>
+        <label class="pill lang"><span class="sr">Language</span><select id="lang"></select></label>
+      </div>
+    </div>
+    <div class="portal">
+      <div class="inner">
+        <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><rect x="4.5" y="4.5" width="15" height="15" fill="currentColor"/><rect x="4.5" y="4.5" width="15" height="15" fill="currentColor" transform="rotate(45 12 12)"/></svg>
+        <p class="eyebrow">Xush kelibsiz · Uzbekistan</p>
+        <h1><span data-t>Don’t just see Uzbekistan.</span> <em data-t>Take part in it.</em></h1>
+        <p class="lede" data-t>Cook somsa in Jizzakh, embroider suzani in Samarkand, dance lazgi in Khorezm, and walk on stage in an adras robe on your final evening. You choose what to try. We book the masters, performers, guide and transport.</p>
+        <ul class="facts">
+          <li><b data-t>10 days</b> · <span data-t>5 regions</span></li>
+          <li><b>12</b> <span data-t>hands-on activities</span></li>
+          <li><b>8–15</b> <span data-t>travellers per group</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="wrap">
+    <div class="head mid">
+      <p class="eyebrow" data-t>What you will do</p>
+      <h2 data-t>Six traditions, learned with your own hands</h2>
+      <p data-t>Each session is led by a working master or performer, with an English-speaking assistant beside you.</p>
+    </div>
+    <div class="xps">
+      <article class="xp"><div class="cloth small c3" role="presentation"></div><div class="in"><p class="where" data-t>Food · Jizzakh</p><h3 data-t>Jizzakh somsa</h3><p data-t>Fold and bake the region’s famous large somsa in a clay tandoor.</p></div></article>
+      <article class="xp"><div class="cloth small c2" role="presentation"></div><div class="in"><p class="where" data-t>Craft · Samarkand</p><h3 data-t>Suzani embroidery</h3><p data-t>Learn the stitches and the meaning of the patterns from the women who sew them.</p></div></article>
+      <article class="xp"><div class="cloth small c4" role="presentation"></div><div class="in"><p class="where" data-t>Dance · Khorezm</p><h3 data-t>Lazgi</h3><p data-t>The fiery dance of Khorezm, taught step by step until you can dance it through.</p></div></article>
+      <article class="xp"><div class="cloth small c1" role="presentation"></div><div class="in"><p class="where" data-t>Music · Tashkent</p><h3 data-t>Doira and dutar</h3><p data-t>Hold the frame drum and the two-stringed lute, and play along with the musicians.</p></div></article>
+      <article class="xp"><div class="cloth small c2" role="presentation"></div><div class="in"><p class="where" data-t>Craft · Bukhara</p><h3 data-t>Miniature painting</h3><p data-t>Paint a miniature with a Bukhara master and keep your work.</p></div></article>
+      <article class="xp"><div class="cloth small c3" role="presentation"></div><div class="in"><p class="where" data-t>Living theatre · Bukhara</p><h3 data-t>A scene from the Silk Road</h3><p data-t>Actors bring a historic site to life, and you are given a role in the story.</p></div></article>
+    </div>
+  </div>
+</div>
+
+<div class="band cloth c3" role="presentation"></div>
+
+<div class="section paper">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow" data-t>A sample programme</p>
+      <h2 data-t>Ten days, five regions, twelve hands-on activities</h2>
+      <p data-t>Long road days have no workshops, and day five is free.</p>
+    </div>
+    <ol class="days">
+      <li><p class="n">1</p><h3 data-t>Tashkent</h3><p data-t>Welcome ceremony and an evening at the theatre.</p></li>
+      <li><p class="n">2</p><h3 data-t>Tashkent</h3><p data-t>Plov workshop, then doira and dutar.</p></li>
+      <li><p class="n">3</p><h3 data-t>Jizzakh → Samarkand</h3><p data-t>Somsa workshop on the way, Registan at dusk.</p></li>
+      <li><p class="n">4</p><h3 data-t>Samarkand</h3><p data-t>Suzani or paper-making workshop, bread baking.</p></li>
+      <li><p class="n">5</p><h3 data-t>Samarkand</h3><p data-t>A free day to explore and rest.</p></li>
+      <li><p class="n">6</p><h3 data-t>Bukhara</h3><p data-t>Morning on the road, tea ceremony and music in the evening.</p></li>
+      <li><p class="n">7</p><h3 data-t>Bukhara</h3><p data-t>A live scene with actors, then miniature painting.</p></li>
+      <li><p class="n">8</p><h3 data-t>Khiva</h3><p data-t>A day on the road across the desert, evening walk in Ichan-Kala.</p></li>
+      <li><p class="n">9</p><h3 data-t>Khiva</h3><p data-t>Lazgi dance lesson and wood carving.</p></li>
+      <li><p class="n">10</p><h3 data-t>Khiva</h3><p data-t>The final stage: you perform what you learned.</p></li>
+    </ol>
+    <p class="note" data-t>A sample outline. Schedules are confirmed after our pilot programmes.</p>
+  </div>
+</div>
+
+<div class="band cloth c4" role="presentation"></div>
+
+<div class="section">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow" data-t>Three ways to join in</p>
+      <h2 data-t>Go as far as you feel comfortable</h2>
+      <p data-t>Every activity is offered at three depths, so a shy first-timer and a keen learner can travel in the same group.</p>
+    </div>
+    <div class="levels">
+      <article class="level"><p class="time" data-t>30–60 minutes</p><h3 data-t>Try</h3><p data-t>A few dance steps, a turn on the doira, a simple object made beside a craftsperson.</p></article>
+      <article class="level"><p class="time" data-t>2–3 hours</p><h3 data-t>Learn</h3><p data-t>A full workshop in a craft, or a dance learned from start to finish.</p></article>
+      <article class="level"><p class="time" data-t>Final evening · optional</p><h3 data-t>Perform</h3><p data-t>Your dance or a role in a historical scene, in national dress.</p></article>
+    </div>
+  </div>
+</div>
+
+<div class="section tight">
+  <div class="wrap">
+    <div class="two">
+      <div class="col">
+        <div class="head">
+          <p class="eyebrow" data-t>How it works</p>
+          <h2 data-t>One booking for the whole programme</h2>
+        </div>
+        <ol class="steps">
+          <li><h3 data-t>Tell us what you want to try</h3><p data-t>Pick the activities and how deep you want to go.</p></li>
+          <li><h3 data-t>We arrange everyone</h3><p data-t>Masters, performers, a guide and transport are booked for you.</p></li>
+          <li><h3 data-t>Arrive and take part</h3><p data-t>A local artist works beside you in every session.</p></li>
+        </ol>
+      </div>
+      <div class="frame cloth small c2">
+        <aside class="price">
+          <p class="eyebrow" data-t>Planned pricing</p>
+          <p class="fee">$50</p>
+          <p><b data-t>One flat service fee per traveller, however many activities you join.</b></p>
+          <p data-t>Workshop and performance fees are set by the artists themselves and listed before you book.</p>
+          <p data-t>Prices will be confirmed after our pilot programmes.</p>
+        </aside>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section tight">
+  <div class="wrap">
+    <div class="wed cloth c1">
+      <div class="inner">
+        <span class="soon" data-t>Coming soon · waiting list</span>
+        <h2><span data-t>An Uzbek wedding,</span> <em data-t>in English</em></h2>
+        <p data-t>Be a guest at a traditional Uzbek wedding, with the customs, music and toasts explained to you in English as they happen.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="foot cloth c4">
+  <div class="wrap">
+    <div class="card">
+      <b>Welcome to My Country</b>
+      <span data-t>Founded by Shaxzoda Yusupova · Tashkent, Uzbekistan</span>
+    </div>
+  </div>
+</div>
+
+<script>
+// Weave adras (Uzbek ikat): large almond medallions outlined in white, with every warp
+// thread slipped a little along its length so the colour edges feather the way dyed silk does.
+(function () {
+  try {
+    var W = 300, H = 520, S = 2, w = W * S, h = H * S;
+    var WHITE = [251, 245, 230], INK = [23, 18, 43], YEL = [244, 194, 30], RED = [179, 18, 45],
+        IND = [32, 38, 111], EME = [14, 122, 78], MAG = [138, 31, 124], TUR = [21, 150, 166], SAF = [240, 184, 26];
+    var ways = [
+      [RED, YEL, IND, EME, MAG],
+      [IND, YEL, RED, TUR, EME],
+      [SAF, RED, EME, MAG, IND],
+      [EME, YEL, MAG, RED, IND]
+    ];
+    ways.forEach(function (p, n) {
+      var seed = 7919 * (n + 3);
+      function rnd() { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; }
+      var c = document.createElement('canvas'); c.width = w; c.height = h;
+      var ctx = c.getContext('2d'), img = ctx.createImageData(w, h), d = img.data;
+      var p1 = rnd() * 6.283, p2 = rnd() * 6.283, bund = 0, jit = new Float32Array(w), shade = new Float32Array(w);
+      for (var x = 0; x < w; x++) {
+        if (x % 5 === 0) bund = (rnd() - 0.5) * 44;
+        jit[x] = 16 * (0.6 * Math.sin(6.283 * 2 * x / w + p1) + 0.4 * Math.sin(6.283 * 5 * x / w + p2)) + bund + (rnd() - 0.5) * 22;
+        shade[x] = 0.88 + rnd() * 0.12;
+      }
+      var A = [[0.13, p[1]], [0.21, WHITE], [0.47, p[2]], [0.55, WHITE], [0.80, p[3]], [0.89, WHITE], [1.0, INK]];
+      var B = [[0.24, p[1]], [0.36, WHITE], [0.74, p[4]], [0.86, WHITE], [1.0, INK]];
+      for (var x2 = 0; x2 < w; x2++) {
+        var du = Math.abs((x2 + 0.5) / w - 0.5), j = jit[x2], sh = shade[x2];
+        for (var y = 0; y < h; y++) {
+          var yy = ((y + j) % h + h) % h, dv = Math.abs(yy / h - 0.5), rgb = p[0], k = 0;
+          var m = du / 0.40 + Math.pow(dv / 0.47, 1.35);
+          if (m < 1) { while (m > A[k][0]) k++; rgb = A[k][1]; }
+          else {
+            var q = (0.5 - du) / 0.25 + Math.pow((0.5 - dv) / 0.29, 1.35);
+            if (q < 1) { while (q > B[k][0]) k++; rgb = B[k][1]; }
+          }
+          var f = sh * ((y % 3 === 0) ? 0.95 : 1), o = (y * w + x2) * 4;
+          d[o] = rgb[0] * f; d[o + 1] = rgb[1] * f; d[o + 2] = rgb[2] * f; d[o + 3] = 255;
+        }
+      }
+      ctx.putImageData(img, 0, 0);
+      document.documentElement.style.setProperty('--cloth-' + (n + 1), 'url(' + c.toDataURL('image/jpeg', 0.88) + ')');
+    });
+  } catch (e) {}
+})();
+</script>
+
+<script>
+// Languages. English lives in the markup; every other language is a list in the same order
+// as the [data-t] elements on the page.
+var T = {
+uz: [
+"Sinov dasturlari tayyorlanmoqda",
+"O‘zbekistonni shunchaki ko‘rmang.", "Uning ichida ishtirok eting.",
+"Jizzaxda somsa yoping, Samarqandda suzani tiking, Xorazmda lazgi o‘ynang va oxirgi kechada adras to‘nda sahnaga chiqing. Nimani sinab ko‘rishni siz tanlaysiz. Ustalar, ijrochilar, gid va transportni biz bron qilamiz.",
+"10 kun", "5 viloyat", "ta amaliy mashg‘ulot", "kishilik guruh",
+"Nima qilasiz", "Olti an’ana: o‘z qo‘lingiz bilan o‘rganasiz", "Har bir mashg‘ulotni amaldagi usta yoki ijrochi olib boradi, yoningizda ingliz tilini biladigan yordamchi bo‘ladi.",
+"Taom · Jizzax", "Jizzax somsasi", "Viloyatning mashhur katta somsasini o‘zingiz tugib, tandirda yopasiz.",
+"Hunar · Samarqand", "Suzani kashtachiligi", "Choklarni va naqshlar ma’nosini ularni tikadigan ayollarning o‘zidan o‘rganasiz.",
+"Raqs · Xorazm", "Lazgi", "Xorazmning otashin raqsi: to‘liq o‘ynay olguningizcha qadam-baqadam o‘rgatiladi.",
+"Musiqa · Toshkent", "Doira va dutor", "Doira va dutorni qo‘lga olib, sozandalar bilan birga chalasiz.",
+"Hunar · Buxoro", "Miniatyura", "Buxorolik usta bilan miniatyura chizasiz va ishingizni olib ketasiz.",
+"Jonli teatr · Buxoro", "Ipak yo‘lidan bir sahna", "Aktyorlar tarixiy joyni jonlantiradi, sizga ham rol beriladi.",
+"Namunaviy dastur", "O‘n kun, besh viloyat, o‘n ikki amaliy mashg‘ulot", "Uzoq yo‘l kunlarida mashg‘ulot yo‘q, beshinchi kun bo‘sh.",
+"Toshkent", "Kutib olish marosimi va teatrda oqshom.",
+"Toshkent", "Palov ustaxonasi, keyin doira va dutor.",
+"Jizzax → Samarqand", "Yo‘lda somsa ustaxonasi, oqshomda Registon.",
+"Samarqand", "Suzani yoki qog‘oz ustaxonasi, non yopish.",
+"Samarqand", "Bo‘sh kun: sayr va dam olish.",
+"Buxoro", "Ertalab yo‘l, kechqurun choy marosimi va musiqa.",
+"Buxoro", "Aktyorlar bilan jonli sahna, so‘ng miniatyura.",
+"Xiva", "Cho‘l orqali bir kunlik yo‘l, kechqurun Ichan qal’ada sayr.",
+"Xiva", "Lazgi darsi va yog‘och o‘ymakorligi.",
+"Xiva", "Yakuniy sahna: o‘rganganingizni ijro etasiz.",
+"Namunaviy reja. Jadval sinov dasturlaridan keyin tasdiqlanadi.",
+"Ishtirokning uch darajasi", "O‘zingizga qulay darajada qatnashing", "Har bir mashg‘ulot uch darajada taklif qilinadi, shuning uchun tortinchoq mehmon ham, ishtiyoqli o‘rganuvchi ham bir guruhda sayohat qila oladi.",
+"30–60 daqiqa", "Sinab ko‘rish", "Bir necha raqs qadami, doira chalish, usta yonida oddiy buyum yasash.",
+"2–3 soat", "O‘rganish", "Bitta hunar bo‘yicha to‘liq ustaxona yoki boshidan oxirigacha o‘rganilgan raqs.",
+"Yakuniy kecha · ixtiyoriy", "Sahnaga chiqish", "Milliy libosda o‘z raqsingiz yoki tarixiy sahnadagi rol.",
+"Qanday ishlaydi", "Butun dastur uchun bitta bron",
+"Nimani sinab ko‘rmoqchi ekaningizni ayting", "Mashg‘ulotlarni va qanchalik chuqur o‘rganishni tanlang.",
+"Hammasini biz tashkil qilamiz", "Ustalar, ijrochilar, gid va transport siz uchun bron qilinadi.",
+"Keling va ishtirok eting", "Har bir mashg‘ulotda mahalliy ijodkor siz bilan yonma-yon ishlaydi.",
+"Rejalashtirilgan narx", "Nechta mashg‘ulotda qatnashsangiz ham, har bir sayohatchidan bitta xizmat to‘lovi.", "Ustaxona va tomosha narxlarini ijodkorlarning o‘zi belgilaydi, ular brondan oldin ko‘rsatiladi.", "Narxlar sinov dasturlaridan keyin tasdiqlanadi.",
+"Tez orada · kutish ro‘yxati", "O‘zbek to‘yi,", "ingliz tilida", "An’anaviy o‘zbek to‘yida mehmon bo‘ling: urf-odatlar, musiqa va tilaklar shu zahoti ingliz tilida tushuntirib boriladi.",
+"Asoschi: Shaxzoda Yusupova · Toshkent, O‘zbekiston"
+],
+ru: [
+"Пилотные программы готовятся",
+"Не просто посмотрите Узбекистан.", "Станьте его участником.",
+"Испеките самсу в Джизаке, вышейте сюзане в Самарканде, станцуйте лазги в Хорезме и выйдите на сцену в халате из адраса в последний вечер. Вы выбираете, что попробовать. Мастеров, артистов, гида и транспорт бронируем мы.",
+"10 дней", "5 регионов", "практических занятий", "человек в группе",
+"Что вы будете делать", "Шесть традиций, освоенных своими руками", "Каждое занятие ведёт действующий мастер или артист, рядом с вами англоговорящий помощник.",
+"Кухня · Джизак", "Джизакская самса", "Слепите и испеките в тандыре знаменитую большую самсу этого региона.",
+"Ремесло · Самарканд", "Вышивка сюзане", "Узнайте швы и значение узоров у женщин, которые их вышивают.",
+"Танец · Хорезм", "Лазги", "Огненный танец Хорезма: шаг за шагом, пока вы не станцуете его целиком.",
+"Музыка · Ташкент", "Дойра и дутар", "Возьмите в руки дойру и двухструнный дутар и сыграйте вместе с музыкантами.",
+"Ремесло · Бухара", "Миниатюра", "Напишите миниатюру с бухарским мастером и заберите работу с собой.",
+"Живой театр · Бухара", "Сцена с Шёлкового пути", "Актёры оживляют историческое место, а вам достаётся роль в сюжете.",
+"Примерная программа", "Десять дней, пять регионов, двенадцать практических занятий", "В дни долгих переездов занятий нет, пятый день свободный.",
+"Ташкент", "Церемония встречи и вечер в театре.",
+"Ташкент", "Мастер-класс по плову, затем дойра и дутар.",
+"Джизак → Самарканд", "Мастер-класс по самсе в пути, Регистан на закате.",
+"Самарканд", "Мастер-класс по сюзане или бумаге, выпечка лепёшек.",
+"Самарканд", "Свободный день для прогулок и отдыха.",
+"Бухара", "Утром дорога, вечером чайная церемония и музыка.",
+"Бухара", "Живая сцена с актёрами, затем миниатюра.",
+"Хива", "День в дороге через пустыню, вечерняя прогулка по Ичан-Кале.",
+"Хива", "Урок лазги и резьба по дереву.",
+"Хива", "Финальная сцена: вы показываете, чему научились.",
+"Примерный план. Расписание утверждается после пилотных программ.",
+"Три способа участвовать", "Участвуйте настолько, насколько вам комфортно", "Каждое занятие предлагается на трёх уровнях, поэтому и стеснительный новичок, и увлечённый ученик могут ехать в одной группе.",
+"30–60 минут", "Попробовать", "Несколько танцевальных шагов, игра на дойре, простая вещь, сделанная рядом с мастером.",
+"2–3 часа", "Научиться", "Полный мастер-класс по ремеслу или танец, выученный от начала до конца.",
+"Финальный вечер · по желанию", "Выступить", "Ваш танец или роль в исторической сцене, в национальном костюме.",
+"Как это работает", "Одна бронь на всю программу",
+"Расскажите, что хотите попробовать", "Выберите занятия и глубину погружения.",
+"Мы организуем всех", "Мастера, артисты, гид и транспорт бронируются для вас.",
+"Приезжайте и участвуйте", "На каждом занятии рядом с вами работает местный мастер.",
+"Планируемая цена", "Один фиксированный сервисный сбор с путешественника, сколько бы занятий вы ни выбрали.", "Стоимость мастер-классов и выступлений устанавливают сами мастера, она указана до бронирования.", "Цены будут утверждены после пилотных программ.",
+"Скоро · лист ожидания", "Узбекская свадьба", "на английском", "Станьте гостем на традиционной узбекской свадьбе: обычаи, музыку и тосты вам объясняют по-английски прямо по ходу праздника.",
+"Основатель: Шахзода Юсупова · Ташкент, Узбекистан"
+],
+de: [
+"Pilotprogramme in Vorbereitung",
+"Usbekistan nicht nur ansehen.", "Mitmachen.",
+"Backen Sie Somsa in Jizzax, sticken Sie Suzani in Samarkand, tanzen Sie Lazgi in Choresm und stehen Sie am letzten Abend im Adras-Mantel auf der Bühne. Sie wählen, was Sie ausprobieren. Wir buchen Meister, Künstler, Guide und Transport.",
+"10 Tage", "5 Regionen", "Aktivitäten zum Mitmachen", "Reisende pro Gruppe",
+"Was Sie tun werden", "Sechs Traditionen, mit eigenen Händen gelernt", "Jede Einheit wird von einem aktiven Meister oder Künstler geleitet, mit einer englischsprachigen Begleitung an Ihrer Seite.",
+"Küche · Jizzax", "Somsa aus Jizzax", "Falten und backen Sie die berühmte große Somsa der Region im Lehmofen.",
+"Handwerk · Samarkand", "Suzani-Stickerei", "Lernen Sie die Stiche und die Bedeutung der Muster von den Frauen, die sie sticken.",
+"Tanz · Choresm", "Lazgi", "Der feurige Tanz Choresms, Schritt für Schritt, bis Sie ihn ganz tanzen können.",
+"Musik · Taschkent", "Doira und Dutar", "Nehmen Sie Rahmentrommel und zweisaitige Laute in die Hand und spielen Sie mit den Musikern.",
+"Handwerk · Buchara", "Miniaturmalerei", "Malen Sie mit einem Meister aus Buchara eine Miniatur und nehmen Sie sie mit.",
+"Lebendiges Theater · Buchara", "Eine Szene von der Seidenstraße", "Schauspieler erwecken einen historischen Ort zum Leben, und Sie bekommen eine Rolle.",
+"Ein Beispielprogramm", "Zehn Tage, fünf Regionen, zwölf Aktivitäten zum Mitmachen", "An langen Fahrtagen gibt es keine Workshops, und Tag fünf ist frei.",
+"Taschkent", "Begrüßungszeremonie und ein Abend im Theater.",
+"Taschkent", "Plov-Workshop, danach Doira und Dutar.",
+"Jizzax → Samarkand", "Somsa-Workshop unterwegs, Registan in der Abenddämmerung.",
+"Samarkand", "Suzani- oder Papier-Workshop, Brotbacken.",
+"Samarkand", "Ein freier Tag zum Entdecken und Ausruhen.",
+"Buchara", "Vormittags Fahrt, abends Teezeremonie und Musik.",
+"Buchara", "Eine Live-Szene mit Schauspielern, dann Miniaturmalerei.",
+"Chiwa", "Ein Fahrtag durch die Wüste, Abendspaziergang in Ichan-Kala.",
+"Chiwa", "Lazgi-Tanzstunde und Holzschnitzerei.",
+"Chiwa", "Die Abschlussbühne: Sie zeigen, was Sie gelernt haben.",
+"Ein Beispielablauf. Die Zeitpläne werden nach unseren Pilotprogrammen bestätigt.",
+"Drei Arten mitzumachen", "Gehen Sie so weit, wie Sie sich wohlfühlen", "Jede Aktivität gibt es in drei Stufen, damit Zurückhaltende und Lernbegeisterte in derselben Gruppe reisen können.",
+"30–60 Minuten", "Ausprobieren", "Ein paar Tanzschritte, eine Runde auf der Doira, ein einfaches Stück neben einem Handwerker.",
+"2–3 Stunden", "Lernen", "Ein vollständiger Handwerks-Workshop oder ein Tanz von Anfang bis Ende.",
+"Letzter Abend · freiwillig", "Auftreten", "Ihr Tanz oder eine Rolle in einer historischen Szene, in Nationaltracht.",
+"So funktioniert es", "Eine Buchung für das ganze Programm",
+"Sagen Sie uns, was Sie ausprobieren möchten", "Wählen Sie die Aktivitäten und wie tief Sie einsteigen wollen.",
+"Wir organisieren alle", "Meister, Künstler, Guide und Transport werden für Sie gebucht.",
+"Ankommen und mitmachen", "In jeder Einheit arbeitet ein lokaler Künstler an Ihrer Seite.",
+"Geplante Preise", "Eine feste Servicegebühr pro Reisenden, egal an wie vielen Aktivitäten Sie teilnehmen.", "Die Preise für Workshops und Aufführungen legen die Künstler selbst fest; sie werden vor der Buchung angezeigt.", "Die Preise werden nach unseren Pilotprogrammen bestätigt.",
+"Demnächst · Warteliste", "Eine usbekische Hochzeit,", "auf Englisch", "Seien Sie Gast bei einer traditionellen usbekischen Hochzeit; Bräuche, Musik und Trinksprüche werden Ihnen währenddessen auf Englisch erklärt.",
+"Gegründet von Shaxzoda Yusupova · Taschkent, Usbekistan"
+],
+fr: [
+"Programmes pilotes en préparation",
+"Ne vous contentez pas de voir l’Ouzbékistan.", "Prenez-y part.",
+"Cuisez des somsas à Djizak, brodez un suzani à Samarcande, dansez le lazgi au Khorezm et montez sur scène en manteau d’adras le dernier soir. Vous choisissez ce que vous voulez essayer. Nous réservons les maîtres, les artistes, le guide et le transport.",
+"10 jours", "5 régions", "activités pratiques", "voyageurs par groupe",
+"Ce que vous ferez", "Six traditions, apprises de vos propres mains", "Chaque séance est menée par un maître ou un artiste en activité, avec un assistant anglophone à vos côtés.",
+"Cuisine · Djizak", "Somsa de Djizak", "Pliez et cuisez dans un four en argile la grande somsa qui fait la réputation de la région.",
+"Artisanat · Samarcande", "Broderie suzani", "Apprenez les points et le sens des motifs auprès des femmes qui les brodent.",
+"Danse · Khorezm", "Lazgi", "La danse ardente du Khorezm, enseignée pas à pas jusqu’à la danser en entier.",
+"Musique · Tachkent", "Doïra et doutar", "Prenez en main le tambour sur cadre et le luth à deux cordes, et jouez avec les musiciens.",
+"Artisanat · Boukhara", "Peinture de miniature", "Peignez une miniature avec un maître de Boukhara et gardez votre œuvre.",
+"Théâtre vivant · Boukhara", "Une scène de la route de la Soie", "Des acteurs font revivre un site historique et vous confient un rôle.",
+"Un programme type", "Dix jours, cinq régions, douze activités pratiques", "Pas d’atelier les jours de long trajet, et le cinquième jour est libre.",
+"Tachkent", "Cérémonie d’accueil et soirée au théâtre.",
+"Tachkent", "Atelier plov, puis doïra et doutar.",
+"Djizak → Samarcande", "Atelier somsa en chemin, le Registan au crépuscule.",
+"Samarcande", "Atelier suzani ou papier, cuisson du pain.",
+"Samarcande", "Une journée libre pour explorer et se reposer.",
+"Boukhara", "Matinée sur la route, cérémonie du thé et musique le soir.",
+"Boukhara", "Une scène vivante avec des acteurs, puis la miniature.",
+"Khiva", "Une journée de route à travers le désert, promenade du soir à Itchan Kala.",
+"Khiva", "Cours de lazgi et sculpture sur bois.",
+"Khiva", "La scène finale : vous montrez ce que vous avez appris.",
+"Un programme indicatif. Les horaires seront confirmés après nos programmes pilotes.",
+"Trois façons de participer", "Allez aussi loin que vous le souhaitez", "Chaque activité est proposée à trois niveaux, pour que le débutant timide et l’élève passionné voyagent dans le même groupe.",
+"30–60 minutes", "Essayer", "Quelques pas de danse, un essai à la doïra, un objet simple fabriqué auprès d’un artisan.",
+"2–3 heures", "Apprendre", "Un atelier complet d’artisanat, ou une danse apprise du début à la fin.",
+"Dernier soir · facultatif", "Se produire", "Votre danse ou un rôle dans une scène historique, en costume national.",
+"Comment ça marche", "Une seule réservation pour tout le programme",
+"Dites-nous ce que vous voulez essayer", "Choisissez les activités et le niveau souhaité.",
+"Nous organisons tout le monde", "Maîtres, artistes, guide et transport sont réservés pour vous.",
+"Arrivez et participez", "Un artiste local travaille à vos côtés à chaque séance.",
+"Tarifs prévus", "Des frais de service fixes par voyageur, quel que soit le nombre d’activités.", "Les tarifs des ateliers et des spectacles sont fixés par les artistes eux-mêmes et indiqués avant la réservation.", "Les prix seront confirmés après nos programmes pilotes.",
+"Bientôt · liste d’attente", "Un mariage ouzbek,", "en anglais", "Soyez invité à un mariage ouzbek traditionnel ; les coutumes, la musique et les toasts vous sont expliqués en anglais au fil de la fête.",
+"Fondé par Shaxzoda Yusupova · Tachkent, Ouzbékistan"
+],
+it: [
+"Programmi pilota in preparazione",
+"Non limitarti a vedere l’Uzbekistan.", "Partecipa.",
+"Cuoci la somsa a Jizzax, ricama un suzani a Samarcanda, balla il lazgi in Corasmia e sali sul palco con una veste di adras l’ultima sera. Scegli tu cosa provare. Noi prenotiamo maestri, artisti, guida e trasporti.",
+"10 giorni", "5 regioni", "attività pratiche", "viaggiatori per gruppo",
+"Cosa farai", "Sei tradizioni, imparate con le tue mani", "Ogni sessione è guidata da un maestro o artista in attività, con un assistente che parla inglese accanto a te.",
+"Cucina · Jizzax", "Somsa di Jizzax", "Piega e cuoci nel forno di argilla la grande somsa per cui la regione è famosa.",
+"Artigianato · Samarcanda", "Ricamo suzani", "Impara i punti e il significato dei motivi dalle donne che li ricamano.",
+"Danza · Corasmia", "Lazgi", "La danza infuocata della Corasmia, insegnata passo dopo passo finché la balli per intero.",
+"Musica · Tashkent", "Doira e dutar", "Prendi in mano il tamburo a cornice e il liuto a due corde e suona con i musicisti.",
+"Artigianato · Bukhara", "Pittura in miniatura", "Dipingi una miniatura con un maestro di Bukhara e porta a casa il tuo lavoro.",
+"Teatro vivente · Bukhara", "Una scena dalla Via della Seta", "Gli attori danno vita a un sito storico e a te viene affidato un ruolo.",
+"Un programma di esempio", "Dieci giorni, cinque regioni, dodici attività pratiche", "Nei giorni di lungo viaggio non ci sono laboratori, e il quinto giorno è libero.",
+"Tashkent", "Cerimonia di benvenuto e serata a teatro.",
+"Tashkent", "Laboratorio di plov, poi doira e dutar.",
+"Jizzax → Samarcanda", "Laboratorio di somsa lungo la strada, il Registan al tramonto.",
+"Samarcanda", "Laboratorio di suzani o di carta, cottura del pane.",
+"Samarcanda", "Una giornata libera per esplorare e riposare.",
+"Bukhara", "Mattina in viaggio, cerimonia del tè e musica la sera.",
+"Bukhara", "Una scena dal vivo con gli attori, poi la miniatura.",
+"Khiva", "Un giorno di viaggio attraverso il deserto, passeggiata serale a Ichan-Kala.",
+"Khiva", "Lezione di lazgi e intaglio del legno.",
+"Khiva", "Il palco finale: mostri ciò che hai imparato.",
+"Un programma indicativo. Gli orari saranno confermati dopo i programmi pilota.",
+"Tre modi per partecipare", "Spingiti fin dove ti senti a tuo agio", "Ogni attività è proposta a tre livelli, così il principiante timido e l’allievo appassionato viaggiano nello stesso gruppo.",
+"30–60 minuti", "Provare", "Qualche passo di danza, un giro alla doira, un oggetto semplice fatto accanto a un artigiano.",
+"2–3 ore", "Imparare", "Un laboratorio completo di artigianato, o una danza imparata dall’inizio alla fine.",
+"Ultima sera · facoltativo", "Esibirsi", "La tua danza o un ruolo in una scena storica, in abito nazionale.",
+"Come funziona", "Una sola prenotazione per tutto il programma",
+"Dicci cosa vuoi provare", "Scegli le attività e quanto vuoi approfondire.",
+"Organizziamo tutti noi", "Maestri, artisti, guida e trasporti vengono prenotati per te.",
+"Arriva e partecipa", "In ogni sessione un artista locale lavora al tuo fianco.",
+"Prezzi previsti", "Una tariffa di servizio fissa per viaggiatore, a prescindere dal numero di attività.", "I prezzi di laboratori e spettacoli sono stabiliti dagli artisti stessi e indicati prima della prenotazione.", "I prezzi saranno confermati dopo i programmi pilota.",
+"Prossimamente · lista d’attesa", "Un matrimonio uzbeko,", "in inglese", "Sii ospite a un matrimonio uzbeko tradizionale: usanze, musica e brindisi ti vengono spiegati in inglese mentre accadono.",
+"Fondato da Shaxzoda Yusupova · Tashkent, Uzbekistan"
+],
+es: [
+"Programas piloto en preparación",
+"No te limites a ver Uzbekistán.", "Participa.",
+"Hornea somsa en Jizzax, borda un suzani en Samarcanda, baila lazgi en Corasmia y sube al escenario con una túnica de adras en tu última noche. Tú eliges qué probar. Nosotros reservamos maestros, artistas, guía y transporte.",
+"10 días", "5 regiones", "actividades prácticas", "viajeros por grupo",
+"Qué vas a hacer", "Seis tradiciones, aprendidas con tus propias manos", "Cada sesión la dirige un maestro o artista en activo, con un asistente de habla inglesa a tu lado.",
+"Cocina · Jizzax", "Somsa de Jizzax", "Dobla y hornea en un horno de barro la gran somsa que da fama a la región.",
+"Artesanía · Samarcanda", "Bordado suzani", "Aprende las puntadas y el significado de los motivos con las mujeres que los bordan.",
+"Danza · Corasmia", "Lazgi", "La danza ardiente de Corasmia, enseñada paso a paso hasta que la bailes entera.",
+"Música · Taskent", "Doira y dutar", "Toma el pandero y el laúd de dos cuerdas y toca junto a los músicos.",
+"Artesanía · Bujará", "Pintura en miniatura", "Pinta una miniatura con un maestro de Bujará y llévate tu obra.",
+"Teatro vivo · Bujará", "Una escena de la Ruta de la Seda", "Los actores dan vida a un lugar histórico y a ti te dan un papel.",
+"Un programa de ejemplo", "Diez días, cinco regiones, doce actividades prácticas", "Los días de trayecto largo no hay talleres, y el quinto día es libre.",
+"Taskent", "Ceremonia de bienvenida y una noche en el teatro.",
+"Taskent", "Taller de plov, luego doira y dutar.",
+"Jizzax → Samarcanda", "Taller de somsa en el camino, el Registán al atardecer.",
+"Samarcanda", "Taller de suzani o de papel, horneado de pan.",
+"Samarcanda", "Un día libre para explorar y descansar.",
+"Bujará", "Mañana en carretera, ceremonia del té y música por la noche.",
+"Bujará", "Una escena en vivo con actores y después miniatura.",
+"Jiva", "Un día de carretera por el desierto, paseo nocturno por Ichan-Kala.",
+"Jiva", "Clase de lazgi y talla de madera.",
+"Jiva", "El escenario final: muestras lo que aprendiste.",
+"Un esquema de ejemplo. Los horarios se confirmarán tras nuestros programas piloto.",
+"Tres formas de participar", "Llega hasta donde te sientas cómodo", "Cada actividad se ofrece en tres niveles, para que el principiante tímido y el alumno entusiasta viajen en el mismo grupo.",
+"30–60 minutos", "Probar", "Unos pasos de baile, un turno con la doira, un objeto sencillo hecho junto a un artesano.",
+"2–3 horas", "Aprender", "Un taller completo de artesanía, o una danza aprendida de principio a fin.",
+"Última noche · opcional", "Actuar", "Tu danza o un papel en una escena histórica, con traje nacional.",
+"Cómo funciona", "Una sola reserva para todo el programa",
+"Dinos qué quieres probar", "Elige las actividades y hasta dónde quieres profundizar.",
+"Nosotros organizamos a todos", "Maestros, artistas, guía y transporte se reservan por ti.",
+"Llega y participa", "En cada sesión un artista local trabaja a tu lado.",
+"Precios previstos", "Una tarifa de servicio fija por viajero, sin importar cuántas actividades hagas.", "Los precios de talleres y actuaciones los fijan los propios artistas y se muestran antes de reservar.", "Los precios se confirmarán tras nuestros programas piloto.",
+"Próximamente · lista de espera", "Una boda uzbeka,", "en inglés", "Sé invitado a una boda uzbeka tradicional: las costumbres, la música y los brindis se te explican en inglés mientras suceden.",
+"Fundado por Shaxzoda Yusupova · Taskent, Uzbekistán"
+],
+tr: [
+"Pilot programlar hazırlanıyor",
+"Özbekistan’ı yalnızca görmeyin.", "İçinde yer alın.",
+"Cizzah’ta somsa pişirin, Semerkant’ta suzani işleyin, Harezm’de lazgi oynayın ve son akşam adras kaftanla sahneye çıkın. Neyi deneyeceğinizi siz seçersiniz. Ustaları, sanatçıları, rehberi ve ulaşımı biz ayarlarız.",
+"10 gün", "5 bölge", "uygulamalı etkinlik", "kişilik gruplar",
+"Neler yapacaksınız", "Altı gelenek, kendi ellerinizle", "Her oturumu mesleğini sürdüren bir usta veya sanatçı yönetir; yanınızda İngilizce bilen bir yardımcı olur.",
+"Mutfak · Cizzah", "Cizzah somsası", "Bölgenin ünlü büyük somsasını kendiniz kapatıp tandırda pişirin.",
+"Zanaat · Semerkant", "Suzani nakışı", "Dikişleri ve desenlerin anlamını onları işleyen kadınlardan öğrenin.",
+"Dans · Harezm", "Lazgi", "Harezm’in ateşli dansı; baştan sona oynayana kadar adım adım öğretilir.",
+"Müzik · Taşkent", "Doyra ve dutar", "Doyrayı ve iki telli dutarı elinize alın, müzisyenlerle birlikte çalın.",
+"Zanaat · Buhara", "Minyatür", "Buharalı bir ustayla minyatür yapın ve eserinizi yanınızda götürün.",
+"Canlı tiyatro · Buhara", "İpek Yolu’ndan bir sahne", "Oyuncular tarihi bir mekânı canlandırır, size de bir rol verilir.",
+"Örnek program", "On gün, beş bölge, on iki uygulamalı etkinlik", "Uzun yol günlerinde atölye yoktur, beşinci gün serbesttir.",
+"Taşkent", "Karşılama töreni ve tiyatroda bir akşam.",
+"Taşkent", "Pilav atölyesi, ardından doyra ve dutar.",
+"Cizzah → Semerkant", "Yolda somsa atölyesi, alacakaranlıkta Registan.",
+"Semerkant", "Suzani veya kâğıt atölyesi, ekmek pişirme.",
+"Semerkant", "Gezmek ve dinlenmek için serbest gün.",
+"Buhara", "Sabah yol, akşam çay töreni ve müzik.",
+"Buhara", "Oyuncularla canlı sahne, ardından minyatür.",
+"Hive", "Çölü aşan bir yol günü, akşam İçan Kale’de yürüyüş.",
+"Hive", "Lazgi dersi ve ahşap oymacılığı.",
+"Hive", "Final sahnesi: öğrendiklerinizi sergilersiniz.",
+"Örnek bir taslaktır. Saatler pilot programlarımızdan sonra kesinleşir.",
+"Katılmanın üç yolu", "Kendinizi rahat hissettiğiniz kadar katılın", "Her etkinlik üç düzeyde sunulur; böylece çekingen bir yeni başlayan da hevesli bir öğrenci de aynı grupta seyahat edebilir.",
+"30–60 dakika", "Deneyin", "Birkaç dans adımı, doyrada bir deneme, zanaatkârın yanında yapılan basit bir eşya.",
+"2–3 saat", "Öğrenin", "Bir zanaatta tam atölye ya da baştan sona öğrenilen bir dans.",
+"Son akşam · isteğe bağlı", "Sahneye çıkın", "Ulusal kıyafetle kendi dansınız ya da tarihi bir sahnede rol.",
+"Nasıl işler", "Tüm program için tek rezervasyon",
+"Ne denemek istediğinizi söyleyin", "Etkinlikleri ve ne kadar derine ineceğinizi seçin.",
+"Herkesi biz ayarlarız", "Ustalar, sanatçılar, rehber ve ulaşım sizin için ayarlanır.",
+"Gelin ve katılın", "Her oturumda yerel bir sanatçı yanınızda çalışır.",
+"Planlanan fiyat", "Kaç etkinliğe katılırsanız katılın, kişi başı tek sabit hizmet bedeli.", "Atölye ve gösteri ücretlerini sanatçılar kendileri belirler ve rezervasyondan önce gösterilir.", "Fiyatlar pilot programlarımızdan sonra kesinleşecektir.",
+"Yakında · bekleme listesi", "Bir Özbek düğünü,", "İngilizce anlatımla", "Geleneksel bir Özbek düğününde konuk olun; âdetler, müzik ve dilekler o anda size İngilizce açıklanır.",
+"Kurucu: Shaxzoda Yusupova · Taşkent, Özbekistan"
+],
+fa: [
+"برنامه‌های آزمایشی در حال آماده‌سازی است",
+"ازبکستان را فقط تماشا نکنید.", "در آن شریک شوید.",
+"در جیزخ سمبوسه بپزید، در سمرقند سوزنی‌دوزی کنید، در خوارزم لزگی برقصید و در شب پایانی با قبای ادرس روی صحنه بروید. شما انتخاب می‌کنید چه چیزی را امتحان کنید. استادکاران، هنرمندان، راهنما و حمل‌ونقل را ما رزرو می‌کنیم.",
+"۱۰ روز", "۵ استان", "فعالیت عملی", "مسافر در هر گروه",
+"چه خواهید کرد", "شش سنت که با دستان خودتان می‌آموزید", "هر جلسه را یک استادکار یا هنرمند فعال اداره می‌کند و یک دستیار انگلیسی‌زبان کنار شماست.",
+"غذا · جیزخ", "سمبوسهٔ جیزخ", "سمبوسهٔ بزرگ و معروف این منطقه را خودتان بپیچید و در تنور گلی بپزید.",
+"صنایع دستی · سمرقند", "سوزنی‌دوزی", "دوخت‌ها و معنای نقش‌ها را از زنانی که آن‌ها را می‌دوزند بیاموزید.",
+"رقص · خوارزم", "لزگی", "رقص پرشور خوارزم که گام‌به‌گام آموزش داده می‌شود تا آن را کامل برقصید.",
+"موسیقی · تاشکند", "دایره و دوتار", "دایره و دوتار را به دست بگیرید و همراه نوازندگان بنوازید.",
+"صنایع دستی · بخارا", "نگارگری مینیاتور", "با استادی بخارایی مینیاتور بکشید و اثر خود را با خود ببرید.",
+"تئاتر زنده · بخارا", "صحنه‌ای از جادهٔ ابریشم", "بازیگران به یک مکان تاریخی جان می‌دهند و به شما هم نقشی داده می‌شود.",
+"برنامهٔ نمونه", "ده روز، پنج استان، دوازده فعالیت عملی", "در روزهای سفر طولانی کارگاهی نیست و روز پنجم آزاد است.",
+"تاشکند", "آیین خوشامدگویی و شبی در تئاتر.",
+"تاشکند", "کارگاه پلو، سپس دایره و دوتار.",
+"جیزخ ← سمرقند", "کارگاه سمبوسه در مسیر، ریگستان هنگام غروب.",
+"سمرقند", "کارگاه سوزنی یا کاغذسازی، پخت نان.",
+"سمرقند", "یک روز آزاد برای گشت‌وگذار و استراحت.",
+"بخارا", "صبح در جاده، شب آیین چای و موسیقی.",
+"بخارا", "صحنه‌ای زنده با بازیگران، سپس مینیاتور.",
+"خیوه", "یک روز در جاده از میان بیابان، پیاده‌روی شبانه در ایچان‌قلعه.",
+"خیوه", "کلاس رقص لزگی و منبت‌کاری چوب.",
+"خیوه", "صحنهٔ پایانی: آنچه آموخته‌اید را اجرا می‌کنید.",
+"این یک طرح نمونه است. زمان‌بندی پس از برنامه‌های آزمایشی قطعی می‌شود.",
+"سه شیوهٔ مشارکت", "تا جایی که راحت هستید پیش بروید", "هر فعالیت در سه سطح ارائه می‌شود تا تازه‌کار خجالتی و هنرجوی مشتاق بتوانند در یک گروه سفر کنند.",
+"۳۰ تا ۶۰ دقیقه", "امتحان کنید", "چند گام رقص، نواختن دایره، ساختن یک شیء ساده در کنار استادکار.",
+"۲ تا ۳ ساعت", "بیاموزید", "یک کارگاه کامل صنایع دستی یا رقصی که از آغاز تا پایان می‌آموزید.",
+"شب پایانی · اختیاری", "اجرا کنید", "رقص شما یا نقشی در یک صحنهٔ تاریخی، با لباس ملی.",
+"چگونه کار می‌کند", "یک رزرو برای کل برنامه",
+"بگویید چه چیزی را می‌خواهید امتحان کنید", "فعالیت‌ها و میزان عمق یادگیری را انتخاب کنید.",
+"ما همه را هماهنگ می‌کنیم", "استادکاران، هنرمندان، راهنما و حمل‌ونقل برای شما رزرو می‌شود.",
+"بیایید و شرکت کنید", "در هر جلسه یک هنرمند محلی در کنار شما کار می‌کند.",
+"قیمت پیش‌بینی‌شده", "یک هزینهٔ خدمات ثابت برای هر مسافر، در هر تعداد فعالیتی که شرکت کنید.", "هزینهٔ کارگاه‌ها و اجراها را خود هنرمندان تعیین می‌کنند و پیش از رزرو نمایش داده می‌شود.", "قیمت‌ها پس از برنامه‌های آزمایشی قطعی می‌شود.",
+"به‌زودی · فهرست انتظار", "عروسی ازبکی،", "به زبان انگلیسی", "مهمان یک عروسی سنتی ازبکی باشید؛ آیین‌ها، موسیقی و آرزوها همان لحظه به انگلیسی برایتان توضیح داده می‌شود.",
+"بنیان‌گذار: شهزاده یوسف‌اوا · تاشکند، ازبکستان"
+],
+zh: [
+"试点行程筹备中",
+"别只是看看乌兹别克斯坦。", "亲身参与其中。",
+"在吉扎克烤萨姆萨，在撒马尔罕绣苏扎尼，在花剌子模跳拉兹吉舞，最后一晚身穿艾德莱斯长袍登台。体验什么由您选择，匠人、表演者、导游和交通由我们预订。",
+"10天", "5个地区", "项动手体验", "人小团",
+"您将做什么", "六项传统，亲手学会", "每场活动由在业的匠人或表演者带领，并有会说英语的助手陪同。",
+"美食 · 吉扎克", "吉扎克萨姆萨", "亲手包好当地有名的大萨姆萨，放进土馕坑里烤。",
+"手工艺 · 撒马尔罕", "苏扎尼刺绣", "向绣娘学习针法，了解图案的含义。",
+"舞蹈 · 花剌子模", "拉兹吉舞", "花剌子模的热烈舞蹈，一步一步教到您能完整跳下来。",
+"音乐 · 塔什干", "手鼓与都塔尔", "拿起手鼓和两弦都塔尔琴，与乐手一起演奏。",
+"手工艺 · 布哈拉", "细密画", "跟布哈拉的画师画一幅细密画，并把作品带回家。",
+"实景戏剧 · 布哈拉", "丝绸之路的一幕", "演员让古迹重现往日情景，您也会得到一个角色。",
+"行程示例", "十天，五个地区，十二项动手体验", "长途行车日不安排工坊，第五天自由活动。",
+"塔什干", "迎宾仪式，晚上看戏剧演出。",
+"塔什干", "抓饭工坊，之后学手鼓和都塔尔。",
+"吉扎克 → 撒马尔罕", "途中参加萨姆萨工坊，黄昏游览雷吉斯坦。",
+"撒马尔罕", "苏扎尼或造纸工坊，烤馕。",
+"撒马尔罕", "自由活动日，游览和休息。",
+"布哈拉", "上午行车，晚上茶礼与音乐。",
+"布哈拉", "与演员同演实景戏，随后画细密画。",
+"希瓦", "全天行车穿越沙漠，傍晚漫步伊钦卡拉古城。",
+"希瓦", "拉兹吉舞课和木雕。",
+"希瓦", "终场舞台：表演您学到的内容。",
+"此为示例安排，具体时间将在试点行程后确定。",
+"三种参与方式", "参与多深，由您决定", "每项活动都分三个层次，害羞的新手和热情的学习者可以同团出行。",
+"30–60分钟", "尝试", "学几个舞步，敲一敲手鼓，在匠人身边做一件简单的物件。",
+"2–3小时", "学习", "一场完整的手工艺工坊，或从头到尾学会一支舞。",
+"最后一晚 · 自愿参加", "登台", "身着民族服装，表演您的舞蹈或在历史场景中扮演角色。",
+"如何运作", "一次预订，全程安排",
+"告诉我们您想体验什么", "选择活动以及想学到多深。",
+"我们安排所有人", "匠人、表演者、导游和交通都为您订好。",
+"到达并参与", "每场活动都有一位当地艺人在您身边。",
+"计划价格", "每位旅客只收一次固定服务费，无论参加多少项活动。", "工坊和演出费用由艺人自行定价，预订前会列明。", "价格将在试点行程后确定。",
+"即将推出 · 候补名单", "乌兹别克婚礼，", "英语讲解", "作为宾客参加一场传统的乌兹别克婚礼，习俗、音乐和祝词都会当场用英语为您讲解。",
+"创始人：Shaxzoda Yusupova · 乌兹别克斯坦塔什干"
+],
+ja: [
+"パイロットプログラム準備中",
+"ウズベキスタンを見るだけで終わらせない。", "その中に参加しよう。",
+"ジザフでサムサを焼き、サマルカンドでスザニを刺し、ホラズムでラズギを踊り、最後の夜にはアドラスの衣装で舞台に立ちます。何を体験するかはあなた次第。職人、演者、ガイド、移動手段は私たちが手配します。",
+"10日間", "5つの地域", "の体験アクティビティ", "名の少人数グループ",
+"体験できること", "六つの伝統を、自分の手で", "すべての回を現役の職人や演者が指導し、英語を話すアシスタントがそばにつきます。",
+"食 · ジザフ", "ジザフのサムサ", "この地方名物の大きなサムサを自分で包み、土のタンドールで焼きます。",
+"工芸 · サマルカンド", "スザニ刺繍", "刺し方と文様の意味を、実際に刺している女性たちから学びます。",
+"舞踊 · ホラズム", "ラズギ", "ホラズムの情熱的な踊りを、通して踊れるまで一歩ずつ学びます。",
+"音楽 · タシケント", "ドイラとドゥタール", "枠太鼓と二弦のリュートを手に取り、奏者と一緒に演奏します。",
+"工芸 · ブハラ", "細密画", "ブハラの職人と細密画を描き、作品は持ち帰れます。",
+"体験型演劇 · ブハラ", "シルクロードの一場面", "俳優たちが史跡をよみがえらせ、あなたにも役が与えられます。",
+"プログラム例", "10日間、5つの地域、12の体験", "移動の長い日は体験を入れず、5日目は自由行動です。",
+"タシケント", "歓迎の儀式と夜の観劇。",
+"タシケント", "プロフ作り、その後ドイラとドゥタール。",
+"ジザフ → サマルカンド", "道中でサムサ作り、夕暮れのレギスタン。",
+"サマルカンド", "スザニまたは紙すきの体験、ナン焼き。",
+"サマルカンド", "散策と休息のための自由な一日。",
+"ブハラ", "午前は移動、夜はお茶の儀式と音楽。",
+"ブハラ", "俳優と演じるライブシーン、その後細密画。",
+"ヒヴァ", "砂漠を越える移動日、夜はイチャン・カラを散策。",
+"ヒヴァ", "ラズギのレッスンと木彫り。",
+"ヒヴァ", "最終ステージ：学んだことを披露します。",
+"これは一例です。詳しい日程はパイロットプログラム後に確定します。",
+"三つの参加方法", "無理のない範囲で参加できます", "どの体験も三段階から選べるので、控えめな初心者も熱心な学び手も同じグループで旅ができます。",
+"30〜60分", "試す", "ダンスのステップを少し、ドイラをひと叩き、職人の隣で簡単な作品づくり。",
+"2〜3時間", "学ぶ", "工芸の本格的なワークショップ、または最初から最後まで覚える踊り。",
+"最終日の夜 · 任意", "披露する", "民族衣装で、自分の踊りや歴史劇の役を演じます。",
+"ご利用の流れ", "プログラム全体を一度の予約で",
+"体験したいことを教えてください", "アクティビティと、どこまで深く学ぶかを選びます。",
+"手配はすべて私たちが行います", "職人、演者、ガイド、移動手段を予約します。",
+"到着して参加するだけ", "毎回、地元のアーティストが隣で一緒に取り組みます。",
+"予定料金", "いくつ体験に参加しても、お一人につき定額のサービス料は一度だけ。", "ワークショップや公演の料金はアーティスト自身が決め、予約前に表示されます。", "料金はパイロットプログラム後に確定します。",
+"近日公開 · ウェイティングリスト", "ウズベクの結婚式を、", "英語の解説つきで", "伝統的なウズベクの結婚式にゲストとして参加。しきたり、音楽、祝辞をその場で英語で解説します。",
+"創設者：Shaxzoda Yusupova · ウズベキスタン、タシケント"
+],
+ko: [
+"시범 프로그램 준비 중",
+"우즈베키스탄을 구경만 하지 마세요.", "직접 참여하세요.",
+"지자흐에서 솜사를 굽고, 사마르칸트에서 수자니를 수놓고, 호레즘에서 라즈기를 추고, 마지막 저녁에는 아드라스 옷을 입고 무대에 오릅니다. 무엇을 체험할지는 여러분이 고르세요. 장인, 공연자, 가이드, 교통편은 저희가 예약합니다.",
+"10일", "5개 지역", "가지 체험 활동", "명 소그룹",
+"무엇을 하게 되나요", "여섯 가지 전통을 내 손으로 배웁니다", "모든 시간은 현역 장인이나 공연자가 이끌고, 영어를 하는 도우미가 곁에서 돕습니다.",
+"음식 · 지자흐", "지자흐 솜사", "이 지역의 유명한 큰 솜사를 직접 빚어 흙 화덕에 굽습니다.",
+"공예 · 사마르칸트", "수자니 자수", "수를 놓는 여성들에게서 바느질법과 문양의 의미를 배웁니다.",
+"춤 · 호레즘", "라즈기", "호레즘의 열정적인 춤을 끝까지 출 수 있을 때까지 한 걸음씩 배웁니다.",
+"음악 · 타슈켄트", "도이라와 두타르", "틀북과 두 줄 현악기를 들고 연주자들과 함께 연주합니다.",
+"공예 · 부하라", "세밀화", "부하라의 장인과 세밀화를 그리고 작품을 가져갑니다.",
+"살아 있는 연극 · 부하라", "실크로드의 한 장면", "배우들이 유적지를 되살리고, 여러분도 이야기 속 역할을 맡습니다.",
+"프로그램 예시", "10일, 5개 지역, 12가지 체험", "이동이 긴 날에는 워크숍이 없고, 다섯째 날은 자유일입니다.",
+"타슈켄트", "환영 의식과 저녁 연극 관람.",
+"타슈켄트", "플로프 워크숍, 이어서 도이라와 두타르.",
+"지자흐 → 사마르칸트", "가는 길에 솜사 워크숍, 해 질 녘의 레기스탄.",
+"사마르칸트", "수자니 또는 종이 만들기 워크숍, 빵 굽기.",
+"사마르칸트", "둘러보고 쉬는 자유일.",
+"부하라", "오전 이동, 저녁에는 다도와 음악.",
+"부하라", "배우들과 함께하는 현장 연극, 그리고 세밀화.",
+"히바", "사막을 가로지르는 이동일, 저녁에는 이찬칼라 산책.",
+"히바", "라즈기 춤 수업과 목공예.",
+"히바", "마지막 무대: 배운 것을 직접 선보입니다.",
+"예시 일정입니다. 세부 일정은 시범 프로그램 이후 확정됩니다.",
+"참여하는 세 가지 방법", "편안한 만큼만 참여하세요", "모든 활동은 세 단계로 제공되어, 수줍은 초보자와 열정적인 학습자가 같은 그룹으로 여행할 수 있습니다.",
+"30~60분", "맛보기", "춤 스텝 몇 가지, 도이라 한번 쳐 보기, 장인 옆에서 간단한 물건 만들기.",
+"2~3시간", "배우기", "공예 하나를 온전히 배우는 워크숍 또는 처음부터 끝까지 익히는 춤.",
+"마지막 저녁 · 선택", "공연하기", "전통 의상을 입고 나의 춤이나 역사극 속 역할을 선보입니다.",
+"진행 방식", "전체 프로그램을 한 번의 예약으로",
+"체험하고 싶은 것을 알려 주세요", "활동과 배우고 싶은 깊이를 고르세요.",
+"모든 준비는 저희가 합니다", "장인, 공연자, 가이드, 교통편을 예약해 드립니다.",
+"도착해서 참여하세요", "모든 시간에 현지 예술가가 곁에서 함께합니다.",
+"예정 가격", "활동을 몇 개 하든, 여행자 1인당 고정 서비스 요금은 한 번만 냅니다.", "워크숍과 공연 요금은 예술가들이 직접 정하며 예약 전에 안내됩니다.", "가격은 시범 프로그램 이후 확정됩니다.",
+"곧 출시 · 대기 명단", "우즈베크 결혼식,", "영어 해설과 함께", "전통 우즈베크 결혼식에 하객으로 참석하세요. 풍습, 음악, 덕담을 현장에서 영어로 설명해 드립니다.",
+"설립자: Shaxzoda Yusupova · 우즈베키스탄 타슈켄트"
+]
+};
+(function () {
+  var NAMES = [["en", "English"], ["uz", "O‘zbekcha"], ["ru", "Русский"], ["de", "Deutsch"], ["fr", "Français"], ["it", "Italiano"], ["es", "Español"], ["tr", "Türkçe"], ["fa", "فارسی"], ["zh", "中文"], ["ja", "日本語"], ["ko", "한국어"]];
+  var els = Array.prototype.slice.call(document.querySelectorAll('[data-t]'));
+  T.en = els.map(function (e) { return e.textContent; });
+  var sel = document.getElementById('lang'), root = document.documentElement;
+  NAMES.forEach(function (n) { var o = document.createElement('option'); o.value = n[0]; o.textContent = n[1]; sel.appendChild(o); });
+  function setLang(code) {
+    var list = T[code];
+    if (!list || list.length !== els.length) { code = 'en'; list = T.en; }
+    els.forEach(function (e, i) { e.textContent = list[i]; });
+    root.lang = code; root.dir = code === 'fa' ? 'rtl' : 'ltr'; sel.value = code;
+    try { localStorage.setItem('wtmc-lang', code); } catch (e) {}
+  }
+  var start = 'en';
+  try { start = localStorage.getItem('wtmc-lang') || ''; } catch (e) { start = ''; }
+  if (!start) { var nav = (navigator.language || 'en').slice(0, 2).toLowerCase(); start = T[nav] ? nav : 'en'; }
+  sel.addEventListener('change', function () { setLang(sel.value); });
+  setLang(start);
+})();
+</script>
+
+</body></html>
